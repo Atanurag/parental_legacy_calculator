@@ -8,10 +8,13 @@ import { addCalculation, deleteCalculation, readDb } from './db.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS
+const allowedOrigin = '*';
+
 app.use(
   cors({
-    origin: '*',
+    origin: allowedOrigin,
+    methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
