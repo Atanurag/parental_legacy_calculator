@@ -8,18 +8,18 @@ import { addCalculation, deleteCalculation, readDb } from './db.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigin = '*';
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 
-app.use(
-  cors({
-    origin: allowedOrigin,
-    methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
+app.use(cors(corsOptions));
+
+// Explicitly handle browser preflight requests
+app.options(/.*/, cors(corsOptions));
 
 app.use(express.json({ limit: '1mb' }));
-
 // Health check
 app.get('/api/health', (_req, res) => {
   res.json({
