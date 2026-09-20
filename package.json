@@ -8,8 +8,5 @@
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
-  },
-  "dependencies": {
-    "xlsx-js-style": "^1.2.0"
   }
 }
