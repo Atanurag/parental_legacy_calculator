@@ -90,3 +90,16 @@ Instead of requiring an external MongoDB installation, this project uses:
 
 ```text
 backend/data/db.json
+```
+## run locally
+
+```text
+at root folder run npm install then
+npm run install:all then npm run dev
+
+Frontend:
+http://localhost:5173
+
+Backend:
+http://localhost:5000
+```
